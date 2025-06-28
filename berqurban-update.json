@@ -1,6 +1,6 @@
 {
   "latest_version": "1.0.1",
-  "update_url": "https://drive.google.com/file/d/13EmiBAJ5jcqBNyxs6R6Czmbfog3gcXsr/view?usp=drive_link",
+  "update_url": "https://github.com/oejho/app-updater/raw/refs/heads/main/app-debug.apk",
   "is_force_update": true,
   "release_note": "Release OTA"
 }
