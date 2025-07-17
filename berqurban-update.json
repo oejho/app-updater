@@ -1,6 +1,6 @@
 {
-  "latest_version": "1.0.2",
-  "update_url": "https://github.com/oejho/app-updater/raw/refs/heads/main/app-debug.apk",
+  "latest_version": "1.0.3",
+  "update_url": "https://github.com/oejho/app-updater/raw/refs/heads/main/berqurban-1-0-3.apk",
   "is_force_update": true,
   "release_note": "Release OTA"
 }
