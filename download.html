@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Download App with Referral</title>
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const referralCode = params.get("referral_code");
+
+      if (referralCode) {
+        // Save referral code to a file
+        const blob = new Blob([referralCode], { type: "text/plain" });
+        const fileLink = document.createElement("a");
+        fileLink.href = URL.createObjectURL(blob);
+        fileLink.download = "referral.txt";
+        document.body.appendChild(fileLink);
+        fileLink.click();
+        document.body.removeChild(fileLink);
+      }
+
+      // Delay APK download slightly to avoid conflict with file download
+      setTimeout(() => {
+        const apkUrl = "https://github.com/oejho/app-updater/raw/refs/heads/main/berqurban-1-0-3.apk";
+        window.location.href = apkUrl;
+      }, 1000);
+    };
+  </script>
+</head>
+<body>
+  <p>Downloading app and referral code...</p>
+</body>
+</html>
