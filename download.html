@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <title>Download App with Referral</title>
   <script>
-    window.onload = function () {
+    // ✅ Make this function async
+    async function handleReferral() {
       const params = new URLSearchParams(window.location.search);
       const referralCode = params.get("referral_code");
 
       if (referralCode) {
-        // Save referral code to a file
+        // ✅ Copy to clipboard (inside async function)
+        try {
+          await navigator.clipboard.writeText(referralCode);
+          console.log("Referral code copied to clipboard:", referralCode);
+        } catch (err) {
+          console.warn("Clipboard copy failed:", err);
+        }
+
+        // ✅ Optional: Save to a .txt file
         const blob = new Blob([referralCode], { type: "text/plain" });
         const fileLink = document.createElement("a");
         fileLink.href = URL.createObjectURL(blob);
@@ -19,16 +28,20 @@
         document.body.removeChild(fileLink);
       }
 
-      // Delay APK download slightly to avoid conflict with file download
+      // ✅ Trigger APK download
       setTimeout(() => {
         const apkUrl = "https://github.com/oejho/app-updater/raw/refs/heads/main/berqurban-1-0-4.apk";
         window.location.href = apkUrl;
       }, 1000);
+    }
+
+    // ✅ Attach async function to onload
+    window.onload = () => {
+      handleReferral();
     };
   </script>
 </head>
 <body>
-  <p>Downloading app and referral code...</p>
+  <p>Downloading app and copying referral code to clipboard...</p>
 </body>
 </html>
-
